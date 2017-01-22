@@ -7,7 +7,7 @@ $app->get('/api/factorio/mod/{mod}', function ($mod){
 		try {
 			$data = file_get_contents("https://mods.factorio.com/api/mods/".$mod);
 		}catch(Exception $e){
-			return response(null, 404);
+			abort(404);
 		}
 
 		redis()->setex($mod, 600, $data);
