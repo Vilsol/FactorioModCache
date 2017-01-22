@@ -12,7 +12,7 @@ function redis(int $db = 0): Redis {
 
 	if(is_null($redis_cached)){
 		$redis_cached = new Redis();
-		$redis_cached->pconnect(env("REDIS_HOST"), env("REDIS_PORT"));
+		$redis_cached->pconnect(env("REDIS_HOST"), env("REDIS_PORTS"));
 
 		if(!is_null(env("REDIS_PASSWORD"))){
 			$redis_cached->auth(env("REDIS_PASSWORD"));
